@@ -5,7 +5,7 @@ library(shiny)
 library(shinyjs)
 
 # options(shiny.trace = TRUE)
-original_downloaded_file_path <- "D:/Desktop/Radio/Tema3-projekt/"
+original_downloaded_file_path <- original_downloaded_file_path <- paste(getwd(), "/", sep ="")
 original_link <- "https://cddis.nasa.gov/archive/gnss/data/daily/"
 authorization_link <- "http://cddis.nasa.gov/archive/gnss/data/daily/1998/007/98o/chur0070.98o.Z"
 link_end_for_list <- "*?list"
@@ -16,8 +16,8 @@ ui <- fluidPage(
   wellPanel(
     h3("Notes before using:"),
     p("Make sure you have a valid account from NASA EarthData, or register ",a(href="https://urs.earthdata.nasa.gov/oauth/authorize?client_id=gDQnv1IO0j9O2xXdwS8KMQ&response_type=code&redirect_uri=https%3A%2F%2Fcddis.nasa.gov%2Fproxyauth&state=aHR0cDovL2NkZGlzLm5hc2EuZ292L2FyY2hpdmUvZ25zcy9kYXRhL2RhaWx5", "here", target="_blank")),
-    p("Setup your local download path by changing variable original_downloaded_file_path in code, line 8"),
-    code("original_downloaded_file_path <- 'absolute_locale_directory_path'"),
+    p("Setup your local download path by changing variable original_downloaded_file_path in code, line 8. It is currently set to the local directory of the this script."),
+    code("original_downloaded_file_path <- 'absolute_local_directory_path'"),
     hr(),
     p("Original Daily 30-second data is located on website - ",a(href="https://cddis.nasa.gov/Data_and_Derived_Products/GNSS/daily_30second_data.html", "NASA EarthData", target="_blank")),
     p("Keep check of your downloading progress by looking at the 'Event Log' down below"),
